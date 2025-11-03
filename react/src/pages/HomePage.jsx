@@ -1,9 +1,12 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
+import FeaturedProduct from '../components/home/FeaturedProduct'
 
 export class HomePage extends Component {
   render() {
     return (
-      <div>HomePage</div>
+      <Fragment>
+        <FeaturedProduct />
+      </Fragment>
     )
   }
 }
