@@ -7,6 +7,8 @@ import PrivacyPage from '../pages/PrivacyPage';
 import PurchasePage from '../pages/PurchasePage';
 import RefundPage from '../pages/RefundPage';
 import ProductDetailsPage from '../pages/ProductDetailsPage';
+import NotificationPage from '../pages/NotificationPage';
+import FavouritePage from '../pages/FavouritePage';
 
 export class AppRoute extends Component {
   render() {
@@ -20,6 +22,8 @@ export class AppRoute extends Component {
           <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/refund" element={<RefundPage />} />
           <Route  path="/productdetails" element={<ProductDetailsPage />} />
+          <Route  path="/notification" element={<NotificationPage />} />
+          <Route  path="/favourite" element={<FavouritePage />} />
         </Routes>
      </Fragment>
     )
