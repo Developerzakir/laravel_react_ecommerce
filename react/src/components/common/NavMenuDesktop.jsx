@@ -2,6 +2,7 @@
 import React, { Component, Fragment } from 'react'
 import {Navbar,Container, Row, Col,Button} from 'react-bootstrap';
 import Logo from '../../assets/images/shop.png';
+import Bars from '../../assets/images/bars.png';
 import {Link} from "react-router-dom";
 import MegaMenuAll from '../home/MegaMenuAll';
 
@@ -45,7 +46,8 @@ export class NavMenuDesktop extends Component {
             <Container fluid={"true"}  className="fixed-top shadow-sm p-2 mb-0 bg-white">
               <Row>
               <Col lg={4} md={4} sm={12} xs={12}>
-              <Button onClick={this.MenuBarClickHandler} className="btn"><i className="fa fa-bars"></i>  </Button>
+              <img onClick={this.MenuBarClickHandler} className="bar-img" src={Bars} />
+              
                 <Link to="/"> <img className="nav-logo" src={Logo} /> </Link>
               </Col>
 
