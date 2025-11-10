@@ -4,11 +4,11 @@ import AppURL from '../../api/AppURL';
 import axios from 'axios'
 import parse from 'html-react-parser';
 
-class Refund extends Component {
-    constructor(){
+ class About extends Component {
+     constructor(){
           super();
           this.state={
-               refund:"",
+               about:"",
                loaderDiv:"",
                mainDiv:"d-none"
           }
@@ -18,8 +18,8 @@ class Refund extends Component {
           axios.get(AppURL.AllSiteInfo).then(response =>{
                let StatusCode = response.status;
                if(StatusCode==200){
-                    let JsonData = (response.data)[0]['refund'];
-                    this.setState({refund:JsonData,loaderDiv:"d-none",mainDiv:""});
+                    let JsonData = (response.data)[0]['about'];
+                    this.setState({about:JsonData,loaderDiv:"d-none",mainDiv:""});
                } 
 
           }).catch(error=>{
@@ -27,14 +27,15 @@ class Refund extends Component {
           });
      }
 
-
      render() {
           return (
               <Fragment>
                   <Container>
                       <Row className="p-2">
                           <Col className="shadow-sm bg-white mt-2" md={12} lg={12} sm={12} xs={12}>
-                              <div className={this.state.loaderDiv}>
+
+
+                             <div className={this.state.loaderDiv}>
 
                                   <div class="ph-item">
                                       <div class="ph-col-12">
@@ -50,7 +51,8 @@ class Refund extends Component {
                                           </div>
                                       </div>
                                   </div>
-                                  Each course has been hand-tailored to teach a specific skill. I hope you agree! Whether you’re trying to learn a new skill from scratch or want to refresh your memory on something you’ve learned in the past, you’ve come to the right place.<br></br>
+
+
                                   <div class="ph-item">
                                       <div class="ph-col-12">
                                           <div class="ph-row">
@@ -66,15 +68,23 @@ class Refund extends Component {
                                       </div>
                                   </div>
 
-                                  Education makes the world a better place. Make your world better with new skills.
+
+
                               </div>
 
-                              <div className={this.state.mainDiv}>
-                                  <h4 className="section-title-login">Refund Page </h4>
-                                  <p className="section-title-contact">
-                                      {parse(this.state.refund)}
-                                  </p>
-                              </div>
+
+
+
+                              <div className={this.state.mainDiv}></div>
+
+
+
+                              <h4 className="section-title-login">About Us Page </h4>
+                              <p className="section-title-contact">
+                                  {parse(this.state.about)}
+                              </p>
+
+
                           </Col>
                       </Row>
                   </Container>
@@ -83,4 +93,4 @@ class Refund extends Component {
      }
 }
 
-export default Refund
+export default About

@@ -22,8 +22,8 @@ class ContactController extends Controller
             'name'=>$name,
             'email'=>$email,
             'message'=>$message,
-            'contact_date'=>$contact_time,
-            'contact_time'=>$contact_date
+            'contact_date'=>$contact_date,
+            'contact_time'=>$contact_time
         ]);
 
         return $result;
