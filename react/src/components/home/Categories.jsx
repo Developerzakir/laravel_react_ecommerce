@@ -21,6 +21,17 @@ class Categories extends Component {
           });
      }
 
+      MenuItemClick=(event)=>{
+          event.target.classList.toggle("active");
+          var panel = event.target.nextElementSibling;
+          if(panel.style.maxHeight){
+               panel.style.maxHeight = null;
+          }else{
+               panel.style.maxHeight= panel.scrollHeight+ "px"
+          }
+
+     }
+
 
      render() {
 
