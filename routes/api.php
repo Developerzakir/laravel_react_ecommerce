@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\SiteController;
@@ -16,3 +17,6 @@ Route::post('/insert-contact',[ContactController::class,'insertContactDetails'])
 
 //site info
 Route::get('/allsite-info',[SiteController::class,'allSiteInfo']);
+
+//all category
+Route::get('/allcategory',[CategoryController::class,'allCategory']);
