@@ -1,82 +1,58 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from 'react'
+import { Link } from 'react-router-dom';
 
 class MegaMenu extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      activeIndex: null,
-    };
-  }
 
-  handleToggle = (index) => {
-    this.setState((prevState) => ({
-      activeIndex: prevState.activeIndex === index ? null : index,
-    }));
-  };
+     constructor(props){
+          super();
+           
+     }
+ 
+     MenuItemClick=(event)=>{
+          event.target.classList.toggle("active");
+          var panel = event.target.nextElementSibling;
+          if(panel.style.maxHeight){
+               panel.style.maxHeight = null;
+          }else{
+               panel.style.maxHeight= panel.scrollHeight+ "px"
+          }
 
-  render() {
-    const { activeIndex } = this.state;
+     }
 
-    // Example category data
-    const menuItems = [
-      "Men's Clothing",
-      "Women's Clothing",
-      "Electronics",
-      "Shoes",
-      "Accessories",
-      "Home & Kitchen",
-      "Accessories",
-      "Home & Kitchen",
-      "Sports",
-      "Beauty",
-      "Sports",
-      "Beauty",
-    ];
+     render() { 
 
-    return (
-      <div className="accordionMenuDiv">
-        <div className="accordionMenuDivInside">
-          {menuItems.map((title, index) => (
-            <div key={index}>
-              <button
-                className={`accordion ${activeIndex === index ? "active" : ""}`}
-                onClick={() => this.handleToggle(index)}
-              >
-                <img
-                  className="accordionMenuIcon"
-                  src="https://cdn-icons-png.flaticon.com/128/739/739249.png"
-                  alt=""
-                />
-                &nbsp; {title}
-              </button>
+       const CatList = this.props.data;
 
-              <div
-                className="panel"
-                style={{
-                  maxHeight: activeIndex === index ? "200px" : "0",
-                  overflow: "hidden",
-                  transition: "max-height 0.3s ease",
-                }}
-              >
-                <ul>
-                  <li>
-                    <a href="#" className="accordionItem">
-                      T-Shirt 1
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="accordionItem">
-                      T-Shirt 2
-                    </a>
-                  </li>
-                </ul>
+       const MyView = CatList.map((CatList, i) => {
+         return <div key={i.toString()}>
+           <button onClick={this.MenuItemClick} className="accordion">
+             <img className="accordionMenuIcon" src={CatList.category_image} />&nbsp; {CatList.category_name}
+           </button>
+           <div className="panel">
+             <ul>
+               {
+                 (CatList.subcategory_name).map((SubList, i) => {
+                   return <li><Link to={"productsubcategory/" + CatList.category_name + "/" + SubList.subcategory_name} className="accordionItem" >{SubList.subcategory_name} </Link></li>
+
+                 })
+               }
+
+             </ul>
+           </div>
+
+         </div>
+       });
+          return (
+              <div className="accordionMenuDiv">
+                   <div className="accordionMenuDivInside">
+
+               {MyView}
+   
+                   </div>
+
               </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  }
+          )
+     }
 }
 
-export default MegaMenu;
+export default MegaMenu
