@@ -24,4 +24,5 @@ Route::get('/allcategory',[CategoryController::class,'allCategory']);
 
 //all category
 Route::get('/product-listby-remark/{remark}',[ProductListController::class,'productListByRemark']);
+Route::get('/product-listby-category/{category}',[ProductListController::class,'productListByCategory']);
 Route::get('/product-listby-subcategory/{category}/{subcategory}',[ProductListController::class,'productListBySubCategory']);
