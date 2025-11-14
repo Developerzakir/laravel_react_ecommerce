@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\SiteController;
 use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\ProductListController;
 use App\Http\Controllers\Admin\VisitorController;
 
 
@@ -20,3 +21,7 @@ Route::get('/allsite-info',[SiteController::class,'allSiteInfo']);
 
 //all category
 Route::get('/allcategory',[CategoryController::class,'allCategory']);
+
+//all category
+Route::get('/product-listby-remark/{remark}',[ProductListController::class,'productListByRemark']);
+Route::get('/product-listby-subcategory/{category}/{subcategory}',[ProductListController::class,'productListBySubCategory']);
