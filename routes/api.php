@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\SiteController;
 use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\ProductDetailsController;
 use App\Http\Controllers\Admin\ProductListController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\VisitorController;
@@ -30,3 +31,6 @@ Route::get('/product-listby-subcategory/{category}/{subcategory}',[ProductListCo
 
 //sliders
 Route::get('/all-slider',[SliderController::class,'allSlider']);
+
+//product details
+Route::get('/productdetails/{id}',[ProductDetailsController::class,'productDetails']);

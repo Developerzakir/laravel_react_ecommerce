@@ -4,13 +4,16 @@ import HomeSlider  from './HomeSlider'
 import MegaMenu from './MegaMenu'
 import AppURL from '../../api/AppURL';
 import axios from 'axios'
+import SliderLoading from '../PlaceHolder/SliderLoading';
 
 class HomeTop extends Component {
     constructor(){
           super();
           this.state ={
                MenuData:[],
-               SliderData:[]
+               SliderData:[],
+               isLoading:"",
+               mainDiv:"d-none"
           }
      }
 
